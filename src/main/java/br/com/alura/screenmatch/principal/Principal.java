@@ -5,19 +5,24 @@ import br.com.alura.screenmatch.repository.SerieRepository;
 import br.com.alura.screenmatch.service.ConsumoApi;
 import br.com.alura.screenmatch.service.ConverteDados;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Principal {
+
     private Scanner leitura = new Scanner(System.in);
     private ConsumoApi consumo = new ConsumoApi();
     private ConverteDados conversor = new ConverteDados();
-
     private final String ENDERECO = "https://www.omdbapi.com/?t=";
     private final String API_KEY = "&apikey=9c6bec4f";
     private List<DadosSerie> dadosSeries = new ArrayList<>();
+
     private SerieRepository repositorio;
-    private List<Serie> series;
+    private List<Serie> series = new ArrayList<>();
     private Optional<Serie> serieBusca;
 
     public Principal(SerieRepository repositorio) {
@@ -38,8 +43,9 @@ public class Principal {
                     8 - Filtrar séries
                     9 - Buscar episódios por trecho
                     10 - Top 5 episódios por série
-                    11 - Buscar episódios a partir de uma data
-                    0 - Sair
+                    11 - Buscar episódios a partir de uma data 
+                                    
+                    0 - Sair                                 
                     """;
 
             System.out.println(menu);
